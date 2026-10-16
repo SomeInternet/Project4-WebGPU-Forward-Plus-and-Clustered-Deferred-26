@@ -39,7 +39,7 @@ fn main(in: FragmentInput) -> @location(0) vec4f
         discard;
     }
 
-    //Compute world space coordinate of the frag
+    //Compute view space coordinate of the frag
     let vPos: vec3f = (cameraUniforms.view * vec4f(in.pos, 1.0)).xyz;
 
     let tile = vec2u(in.fragPos.xy) / ${clusterPixelSize};
@@ -54,7 +54,7 @@ fn main(in: FragmentInput) -> @location(0) vec4f
     var totalLightContrib = vec3f(0, 0, 0);
     for (var i: u32 = 0; i < clusterSet[clusterIdx].lightCounter; i++) {
         totalLightContrib += calculateLightContrib(lightSet.lights[clusterSet[clusterIdx].lights[i]], in.pos, 
-        normalize(cameraUniforms.view * vec4f(in.nor, 0)).xyz);
+        normalize(in.nor));
     }
 
     var finalColor = diffuseColor.rgb * totalLightContrib;

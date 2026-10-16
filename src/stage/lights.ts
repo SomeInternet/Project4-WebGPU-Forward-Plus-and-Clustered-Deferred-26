@@ -102,7 +102,7 @@ export class Lights {
 
         // TODO-2: initialize layouts, pipelines, textures, etc. needed for light clustering here
         //Create buffer for the cluster sets
-        const numBytesPerCluster = 4 + 4 * 200;
+        const numBytesPerCluster = 4 + 4 * shaders.constants.maxClusterLights;
         const numClusters = Math.ceil(canvas.width / shaders.constants.clusterPixelSize) *
         Math.ceil(canvas.height / shaders.constants.clusterPixelSize) * shaders.constants.numSlices;
         

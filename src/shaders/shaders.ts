@@ -27,10 +27,11 @@ export const constants = {
     bindGroup_scene: 0,
     bindGroup_model: 1,
     bindGroup_material: 2,
+    bindGroup_gBuffer: 1,
 
     moveLightsWorkgroupSize: 128,
 
-    maxClusterLights: 200, //TODO: Change?
+    maxClusterLights: 50, //TODO: Change?
     numSlices: 10,
     clusterPixelSize: 32,
 
