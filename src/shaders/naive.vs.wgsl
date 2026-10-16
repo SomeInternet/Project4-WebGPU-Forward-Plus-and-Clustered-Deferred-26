@@ -18,7 +18,7 @@ struct VertexOutput
     @builtin(position) fragPos: vec4f,
     @location(0) pos: vec3f,
     @location(1) nor: vec3f,
-    @location(2) uv: vec2f
+    @location(2) uv: vec2f,
 }
 
 @vertex
@@ -28,7 +28,7 @@ fn main(in: VertexInput) -> VertexOutput
 
     var out: VertexOutput;
     out.fragPos = cameraUniforms.viewProj * modelPos; // TODO-1.3: replace ??? with the view proj mat from your CameraUniforms uniform variable
-    out.pos = modelPos.xyz / modelPos.w;
+    out.pos = modelPos.xyz;
     out.nor = in.nor;
     out.uv = in.uv;
     return out;
