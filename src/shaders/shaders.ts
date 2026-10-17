@@ -32,7 +32,7 @@ export const constants = {
     moveLightsWorkgroupSize: 128,
 
     maxClusterLights: 150, //TODO: Change?
-    numSlices: 80,
+    numSlices: 40,
     clusterPixelSize: 64,
 
     workgroup_size: 128,
@@ -42,8 +42,19 @@ export const constants = {
 
 // =================================
 
-function evalShaderRaw(raw: string) {
-    return eval('`' + raw.replaceAll('${', '${constants.') + '`');
+function evalShaderRaw(raw: string): string {
+    return raw.replace(
+        /\$\{(\w+)\}/g,
+        (_, name: string) => {
+            const value = constants[name as keyof typeof constants];
+
+            if (value === undefined) {
+                throw new Error(`Missing shader constant: ${name}`);
+            }
+
+            return String(value);
+        }
+    );
 }
 
 const commonSrc: string = evalShaderRaw(commonRaw);
