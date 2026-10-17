@@ -31,11 +31,11 @@ export const constants = {
 
     moveLightsWorkgroupSize: 128,
 
-    maxClusterLights: 50, //TODO: Change?
-    numSlices: 10,
-    clusterPixelSize: 32,
+    maxClusterLights: 150, //TODO: Change?
+    numSlices: 80,
+    clusterPixelSize: 64,
 
-    workgroup_size: 64,
+    workgroup_size: 128,
 
     lightRadius: 2
 };
