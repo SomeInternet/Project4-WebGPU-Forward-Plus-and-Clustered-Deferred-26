@@ -40,7 +40,7 @@ The way we store the fragment data is by writing it to a series of textures we c
 Once we've written the visible geometry data into our g-buffer, we can perform the clustered lighting calculations in the second pass, only on the fragments that matter, by rendering on a quad, where each fragment loads the g-buffer data at its position on the screen.
 
 ### Demo video
-![](img/video.mp4)
+[Check out the demo video here!](https://www.youtube.com/watch?v=ewAtEQ95Pbw)
 
 ### Performance
 #### A note on methodology
